@@ -4,7 +4,7 @@ window.addEventListener('scroll', function() {
     const scrollPosition = window.scrollY;
 
     // 스크롤 위치가 100px 이상일 때 이미지 나타남
-    if (scrollPosition > 200) {
+    if (scrollPosition > 50) {
         scrollMoveContainer.classList.add('visible');
         introContainer.classList.add('middle');
         introContainer.style.left = '50%';
