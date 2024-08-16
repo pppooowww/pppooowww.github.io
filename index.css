@@ -1,19 +1,28 @@
-. {
-    margin: 0;
-    padding: 0;
-    overflow-x: unset;
+@font-face {
+    font-family: 'PTAnboR';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408@1.0/PTAnboR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html{
+    scroll-behavior: smooth;
+    font-family: 'PTAnboR';
+}
+a{
+    text-decoration: none;
+    color: black;
 }
 body {
     height: 300vh; /* 스크롤을 위해 페이지 높이를 늘림 */
+    margin: 0;
+    padding: 0;
 }
 ul{
     list-style-type: none;
 }
 main section:not(:first-child) {
     text-align: center;
-}
-#header-section{
-    height: 200px;
 }
 #img-container{
     height: 440px;
@@ -36,30 +45,70 @@ main section:not(:first-child) {
 }
 .middle {
     opacity: 1;
-    transform: translateX(-100vw); /* 가운데에 놔두기 */
+    transform: translateX(-100vw); /* 가운데에 놔두기x */
     transition: opacity 0.5s, transform 3.5s;
 }
 /************** 스크롤 이벤트 css ****************/
 #introduction-section{
+    height: 100vh;
     display: flex;
     position: relative;
+    top: 0;
+    background-color: aliceblue;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 #scroll-move-container{
-    top: -100px;
+    top: 100px;
     position: absolute;
 }
 #intro-container{
     position: absolute;
+    top: 200px;
     margin: auto 0;
     width: 480px;
     height: 240px;
     align-content: center;
+    text-align: center;
     font-size: 40px;
     font-weight: bold;
-    background-color: aliceblue;
+    background-color: white;
     border-radius: 24px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
 }
-#intro-container p{
-    padding: 0 40px;
+#nav-container{
+    width: 100%;
+    position: relative;
+    top: 650px;
+}
+#nav-container nav{
+    text-align: center;
+}
+
+#nav-container li{
+    display: inline-block;
+    font-size: 28px;
+    font-weight: bold;
+}
+#nav-container li:not(:last-child){
+    margin-right: 40px;
+}
+#nav-container li a:hover{
+    color: rgba(0,0,0,0.5);
+}
+/****************************************/
+.sections{
+    align-content: center;
+    padding: 48px 0;
+}
+.section-title{
+    font-size: 40px;
+    font-style: italic;
+    border-bottom: 2px solid rgba(0,0,0,0.4);
+}
+#about-me-section{
+
+}
+#about-me-container{
+    display: flex;
 }
