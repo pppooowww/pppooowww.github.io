@@ -7,59 +7,110 @@
     <script src="index.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://kit.fontawesome.com/a8fad9cdbf.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <main>
+    <main id="main">
+        <section id="header-section">
+            <div id="header-container">
+                <div id="header-title">
+                    <a href="#main">PARKJEONGWOO</a>
+                </div>
+                <div id="nav-container">
+                    <nav>
+                        <ul>
+                            <li><a href="#about-me-section">About Me</a></li>
+                            <li><a href="#archive-section">Archive</a></li>
+                            <li><a href="#skill-section">Skill</a></li>
+                            <li><a href="#project-section">Project</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
         <section id="introduction-section">
             <div id="scroll-move-container" class="hidden">
                 <!-- 스크롤 내리면 할리 쉭 지나가게 -->
-                <img id="animatedImage" src="images/bike-image.png" alt="#"/>
+                <img id="animatedImage" src="images/bike-image-copy.png" alt="#"/>
             </div>
             <div id="intro-container" class="hidden" >
                 <p>Park Jeong Woo</p>
                 <p>WEB/APP Developer</p>
             </div>
-            <div id="nav-container">
-                <nav>
-                    <ul>
-                        <li><a href="#about-me-section">About Me</a></li>
-                        <li><a href="#archive-section">Archive</a></li>
-                        <li><a href="#skill-section">Skills</a></li>
-                        <li><a href="#project-section">Projects</a></li>
-                    </ul>
-                </nav>
-            </div>
         </section>
 
         <section id="about-me-section" class="sections">
-            <b class="section-title">About Me</b>
-            <div id="about-me-container ">
+            <a class="link-icon" href="#about-me-section"><i class="fa-solid fa-link"></i></a><b class="section-title">ABOUT ME</b>
+            <div id="about-me-container">
                 <div class="about-me-container">
-                    <span>박정우</span>
+                    <span class="desc">NAME</span>
+                    <span class="desc-content">박 정 우</span>
                 </div>
                 <div class="about-me-container">
-                    <span>010-9642-0899</span>
+                    <span class="desc">PHONE</span>
+                    <span class="desc-content">010-9642-0899</span>
                 </div>
                 <div class="about-me-container">
-                    <span>parkjungwoo3@naver.com</span>
+                    <span class="desc">EMAIL</span>
+                    <span class="desc-content">parkjungwoo3@naver.com</span>
                 </div>
             </div>
         </section>
 
         <section id="archive-section" class="sections">
-            <b class="section-title">Archive</b>
-
+            <a class="link-icon" href="#archive-section"><i class="fa-solid fa-link"></i></a><b class="section-title">ARCHIVE</b>
+            <div id="archive-container">
+                <button type="button" class="archive-container-btn" onclick="location.href='https://github.com/pppooowww'">
+                    <img id="git-hub-logo" src="images/git-hub-logo.png" height="383" width="1600" alt="github"/>
+                    <a href="https://github.com/pppooowww">https://github.com/pppooowww</a>
+                    <span>깃허브 소스 코드 저장소입니다.</span>
+                    <span>진행했던 프로젝트들이 있습니다.</span>
+                </button>
+                <button type="button" class="archive-container-btn" onclick="location.href='https://melon-dancer-939.notion.site/Application-Development-Log-db60f2174d4b47de93d33d39570f3a03?pvs=4'">
+                    <img id="notion-logo" src="images/notion-logo.png" height="153" width="420" alt="notion"/>
+                    <a href="https://melon-dancer-939.notion.site/">https://melon-dancer-939.notion.site/</a>
+                    <span>스터디 및 기록 목적의 노션입니다.</span>
+                    <span>공부하면서 내용을 정리한 기록들이 있습니다.</span>
+                </button>
+            </div>
         </section>
 
         <section id="skill-section" class="sections">
-            <b class="section-title">Skills</b>
-
+            <a class="link-icon" href="#skill-section"><i class="fa-solid fa-link"></i></a><b class="section-title">SKILL</b>
+            <div id="skill-all-container">
+                <div class="skill-icons"><img src="images/icons/css-icon.png" height="500" width="500" alt="#"/></div>
+                <div class="skill-icons"><img class="long-icon" src="images/icons/dart-icon.png" height="128" width="128" alt="#"/></div>
+                <div class="skill-icons"><img src="images/icons/docker-icon.png" height="256" width="256" alt="#"/></div>
+                <div class="skill-icons"><img src="images/icons/figma-icon.png" height="256" width="256" alt="#"/></div>
+                <div class="skill-icons"><img class="long-icon" src="images/icons/flutter-icon.png" height="128" width="128" alt="#"/></div>
+                <div class="skill-icons"><img src="images/icons/git-hub-icon.png" height="512" width="512" alt="#"/></div>
+                <div class="skill-icons"><img src="images/icons/gradle-icon.png" height="376" width="512" alt="#"/></div>
+                <div class="skill-icons"><img src="images/icons/html-icon.png" height="300" width="300" alt="#"/></div>
+                <div class="skill-icons"><img src="images/icons/java-icon.png" height="518" width="518" alt="#"/></div>
+                <div class="skill-icons"><img src="images/icons/js-icon.png" height="540" width="540" alt="#"/></div>
+                <div class="skill-icons"><img src="images/icons/maven-icon.png" height="1000" width="750" alt="#"/></div>
+                <div class="skill-icons"><img src="images/icons/mybatis-icon.png" height="512" width="512" alt="#"/></div>
+                <div class="skill-icons"><img id="mysql-icon" src="images/icons/mysql-icon.png" height="450" width="600" alt="#"/></div>
+                <div class="skill-icons"><img src="images/icons/spring-boot-icon.png" height="720" width="802" alt="#"/></div>
+                <div class="skill-icons"><img src="images/icons/spring-icon.png" height="256" width="256" alt="#"/></div>
+                <div class="skill-icons"><img id="thymeleaf-icon" src="images/icons/thymeleaf-icon.png" height="257" width="256" alt="#"/></div>
+                <div class="skill-icons"><img src="images/icons/spring-security-icon.png" height="200" width="200" alt="#"/></div>
+                <div class="skill-icons"><img src="images/icons/python-icon.png" height="256" width="256" alt="#"/></div>
+            </div>
+            <div id="skill-describe-container">
+                <div class="skill-desc">
+                    <b class="skill-desc-title">JAVA</b>
+                    <p class="skill-desc-content"></p>
+                </div>
+            </div>
         </section>
 
         <section id="project-section" class="sections">
-            <b class="section-title">Projects</b>
+            <a class="link-icon" href="#project-section"><i class="fa-solid fa-link"></i></a><b class="section-title">PROJECT</b>
+            <div class="project-container">
 
-
+            </div>
         </section>
     </main>
 </body>
