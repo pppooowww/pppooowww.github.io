@@ -3,7 +3,6 @@ window.addEventListener('scroll', function() {
     const introContainer = document.getElementById('intro-container');
     const scrollPosition = window.scrollY;
 
-    // 스크롤 위치가 100px 이상일 때 이미지 나타남
     if (scrollPosition > 10) {
         scrollMoveContainer.classList.add('visible');
         introContainer.classList.add('middle');
@@ -17,7 +16,6 @@ window.addEventListener('scroll', function() {
 const skillIcons = document.querySelectorAll('.skill-icons');
 let draggedIcon = null;
 
-// 아이콘의 초기 위치를 랜덤으로 설정하되 겹치지 않도록 하는 함수
 function setRandomPosition(icon, positions) {
     const container = document.getElementById('skill-all-container');
     const containerRect = container.getBoundingClientRect();
@@ -25,7 +23,6 @@ function setRandomPosition(icon, positions) {
     let isOverlapping = true;
 
     while (isOverlapping) {
-        // 랜덤한 위치를 계산
         randomX = Math.random() * (containerRect.width - icon.offsetWidth);
         randomY = Math.random() * (containerRect.height - icon.offsetHeight);
 
@@ -34,14 +31,14 @@ function setRandomPosition(icon, positions) {
             const distance = Math.sqrt(
                 Math.pow(pos.x - randomX, 2) + Math.pow(pos.y - randomY, 2)
             );
-            return distance < (icon.offsetWidth + 10); // 10px 여유를 두고 겹치는지 확인
+            return distance < (icon.offsetWidth + 10);
         });
     }
 
     // 아이콘의 위치 설정
     icon.style.left = `${randomX}px`;
     icon.style.top = `${randomY}px`;
-    icon.style.position = 'absolute'; // 아이콘의 위치를 절대적으로 설정
+    icon.style.position = 'absolute';
 
     // 설정한 위치를 저장
     positions.push({ x: randomX, y: randomY });

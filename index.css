@@ -162,7 +162,7 @@ main section:not(:first-child) {
 #archive-container{
     display: flex;
     justify-content: center;
-    width: 70%;
+    width: 1408px;
     margin: 80px auto;
 }
 #archive-section .archive-container-btn{
@@ -212,14 +212,14 @@ main section:not(:first-child) {
     flex-wrap: wrap;
     justify-content: center;
     position: relative;
-    width: 70%;
-    padding: 24px;
+    width: 1328px;
+    padding: 40px;
     margin: 80px auto;
     height: 600px;
     background-color: white;
     border: none;
     border-radius: 24px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
     overflow: hidden;
 }
 #skill-section .skill-icons{
@@ -241,7 +241,7 @@ main section:not(:first-child) {
 }
 #skill-section .long-icon{
     width: 160px;
-    height: 200px;
+    height: 216px;
 }
 #skill-section #mysql-icon{
     width: 200px;
@@ -251,12 +251,41 @@ main section:not(:first-child) {
     border-radius: 25%;
 }
 #skill-describe-container{
-    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 44px;
+    width: 1328px;
     height: 400px;
     padding: 40px;
-    margin: 0 auto;
+    margin: 0 auto 80px;
     background-color: white;
     border: none;
     border-radius: 24px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+}
+#skill-describe-container .skill-desc{
+    text-align: left;
+}
+#skill-describe-container .skill-desc-title{
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+#skill-describe-container .skill-desc-content{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+/****************************************/
+#project-section{
+    background-color: #e5bc71;
+}
+#project-section .project-container{
+    width: 1328px;
+    margin: 80px auto 0;
+    padding: 40px;
+    background-color: white;
+    border: none;
+    border-radius: 24px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
 }
