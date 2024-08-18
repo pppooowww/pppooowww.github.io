@@ -2,7 +2,7 @@ window.addEventListener('scroll', function() {
     const scrollMoveContainer = document.getElementById('scroll-move-container');
     const introContainer = document.getElementById('intro-container');
     const scrollPosition = window.scrollY;
-    const scrollImage = document.getElementById('');
+    const scrollImage = document.querySelector('.scroll-image');
 
     if (scrollPosition > 10) {
         scrollMoveContainer.classList.add('visible');
@@ -10,6 +10,9 @@ window.addEventListener('scroll', function() {
         introContainer.style.left = '50%';
         introContainer.style.transform = 'translate(-50%, 0)';
     }
+
+    const scrollY = window.scrollY; // 현재 스크롤 위치
+    scrollImage.style.top = `${(scrollY / window.innerHeight) - (scrollY / scrollImage.offsetHeight)}px`; // 이미지의 top 위치를 스크롤 위치에 맞춤
 });
 
 let observer = new IntersectionObserver((entries) => {
