@@ -2,6 +2,7 @@ window.addEventListener('scroll', function() {
     const scrollMoveContainer = document.getElementById('scroll-move-container');
     const introContainer = document.getElementById('intro-container');
     const scrollPosition = window.scrollY;
+    const scrollImage = document.getElementById('');
 
     if (scrollPosition > 10) {
         scrollMoveContainer.classList.add('visible');
@@ -11,6 +12,23 @@ window.addEventListener('scroll', function() {
     }
 });
 
+let observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        console.log(entry.target);
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+        } else {
+            entry.target.style.opacity = 0;
+            entry.target.style.transform = 'translateY(7%)';
+        }
+    });
+});
+
+let containers = document.querySelectorAll('.containers');
+for(const container of containers) {
+        observer.observe(container);
+}
 
 /*************************************************************/
 const skillIcons = document.querySelectorAll('.skill-icons');
@@ -64,29 +82,27 @@ skillIcons.forEach(icon => {
         event.preventDefault(); // 기본 동작 방지
     });
 
-    icon.addEventListener('drop', (event) => {
-        event.preventDefault(); // 기본 동작 방지
+    icon.addEventListener('mousedown', (event) => {
+        draggedIcon = event.target; // 드래그할 아이콘 설정
+        offsetX = event.clientX - draggedIcon.getBoundingClientRect().left; // 클릭한 위치에서 아이콘의 왼쪽 가장자리까지의 거리
+        offsetY = event.clientY - draggedIcon.getBoundingClientRect().top; // 클릭한 위치에서 아이콘의 위쪽 가장자리까지의 거리
+    });
+
+    icon.addEventListener('drag', (event) => {
+        event.preventDefault();
         if (draggedIcon) {
             const containerRect = document.getElementById('skill-all-container').getBoundingClientRect();
-            const offsetX = event.clientX - containerRect.left; // 드랍 위치의 X 좌표
-            const offsetY = event.clientY - containerRect.top; // 드랍 위치의 Y 좌표
+            const newX = event.clientX - containerRect.left - offsetX; // 드래그 위치에서 오프셋을 빼줌
+            const newY = event.clientY - containerRect.top - offsetY; // 드래그 위치에서 오프셋을 빼줌
 
-            // 드래그한 아이콘의 위치 업데이트
-            draggedIcon.style.left = `${offsetX - (draggedIcon.offsetWidth / 2)}px`; // 중앙 정렬
-            draggedIcon.style.top = `${offsetY - (draggedIcon.offsetHeight / 2)}px`; // 중앙 정렬
+            // 드래그 중 아이콘의 위치 업데이트
+            draggedIcon.style.left = `${newX}px`;
+            draggedIcon.style.top = `${newY}px`;
         }
     });
 
-    // 드래그 시작 시 위치를 고정하기 위해 mousemove 이벤트 추가
-    icon.addEventListener('drag', (event) => {
-        if (event.clientX && event.clientY) {
-            const containerRect = document.getElementById('skill-all-container').getBoundingClientRect();
-            const offsetX = event.clientX - containerRect.left; // 드래그 위치의 X 좌표
-            const offsetY = event.clientY - containerRect.top; // 드래그 위치의 Y 좌표
-
-            // 드래그 중 아이콘의 위치 업데이트
-            draggedIcon.style.left = `${offsetX - (draggedIcon.offsetWidth / 2)}px`; // 중앙 정렬
-            draggedIcon.style.top = `${offsetY - (draggedIcon.offsetHeight / 2)}px`; // 중앙 정렬
-        }
+    icon.addEventListener('drop', (event) => {
+        event.preventDefault(); // 기본 동작 방지
+        draggedIcon = null; // 드래그가 끝났으므로 null로 설정
     });
 });

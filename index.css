@@ -111,6 +111,11 @@ main section:not(:first-child) {
 .sections{
     padding: 128px 0;
 }
+.containers{
+    opacity: 0;
+    transform: translateY(7%);
+    transition: all 1.5s;
+}
 .section-title{
     margin-top: 24px;
     padding: 8px;
