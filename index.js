@@ -2,17 +2,27 @@ window.addEventListener('scroll', function() {
     const scrollMoveContainer = document.getElementById('scroll-move-container');
     const introContainer = document.getElementById('intro-container');
     const scrollPosition = window.scrollY;
-    const scrollImage = document.querySelector('.scroll-image');
-
     if (scrollPosition > 10) {
+
         scrollMoveContainer.classList.add('visible');
         introContainer.classList.add('middle');
         introContainer.style.left = '50%';
         introContainer.style.transform = 'translate(-50%, 0)';
     }
 
-    const scrollY = window.scrollY; // 현재 스크롤 위치
-    scrollImage.style.top = `${(scrollY / window.innerHeight) - (scrollY / scrollImage.offsetHeight)}px`; // 이미지의 top 위치를 스크롤 위치에 맞춤
+    const scrollImageDiv = document.getElementById('scroll-image');
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const documentHeight = document.documentElement.scrollHeight;
+    const windowHeight = window.innerHeight;
+
+    // 전체 높이에 대한 스크롤 비율 계산
+    const scrollRatio = scrollTop / (documentHeight - windowHeight);
+
+    // 이미지 위치 계산
+    const newTop = scrollRatio * (windowHeight - scrollImageDiv.offsetHeight);
+
+    // 위치 업데이트
+    scrollImageDiv.style.top = `${newTop}px`;
 });
 
 let observer = new IntersectionObserver((entries) => {
